@@ -42,7 +42,18 @@ function sentenceManipulation(sentence){
     rl.prompt();
     
     rl.on('line', (line) => {
-     console.log(sentenceManipulation(line))
+     switch(line.trim()){
+      case 'ibu pergi ke pasar':
+      console.log(sentenceManipulation(line))
+      break
+      case 'ayam':
+      console.log(stringManipulation(line))
+      break
+      default:
+        console.log(`aku tidak mengerti' ${line.trim()}'`)
+      break
+    
+    }
       rl.prompt();
       
     }).on('close', () => {
