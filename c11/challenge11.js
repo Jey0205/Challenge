@@ -11,7 +11,7 @@ console.log(' ')
 
 let a = 0
 
-console.log(json[a].pertanyaan)
+console.log('Pertanyaan: ' + json[a].pertanyaan)
 
 rl.prompt()
 rl.on('line', (tebakan) => {
@@ -24,7 +24,7 @@ rl.on('line', (tebakan) => {
             console.log(' ')
             process.exit()
         }
-        console.log(json[a].pertanyaan)
+        console.log('Pertanyaan: ' + json[a].pertanyaan)
     }else{
         console.log('wkwkwkwkwk, Anda kurang beruntung!')
         console.log(' ')
