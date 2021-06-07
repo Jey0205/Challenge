@@ -19,7 +19,7 @@ rl.on('line', (tebakan) => {
         console.log('Selamat Anda Benar!')
         console.log(' ')
         a++
-        if(a == 3){
+        if(a == json.length ){
             console.log('Hore Anda Menang!!')
             console.log(' ')
             process.exit()
