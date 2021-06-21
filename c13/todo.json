@@ -1,0 +1,19 @@
+[
+   {
+      "task": "saya akan belajar koding",
+      "completed": false,
+      "tag": [
+         "belajar",
+         "javascript"
+      ]
+   },
+   {
+      "task": "saya akan memasak",
+      "completed": true,
+      "tag": [
+         "masak",
+         "ikan",
+         "goreng"
+      ]
+   }
+]
