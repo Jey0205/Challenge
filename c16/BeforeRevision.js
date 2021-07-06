@@ -63,7 +63,7 @@ class Toyota extends CarFactory{
     }
     totalPerYear(){
            super.totalPerYear()
-           console.log(`Total production Porsche per year ${super.totalPerYear()}`)
+           console.log(`Total production Toyota per year ${super.totalPerYear()}`)
     }
     launch(){
         console.log(`This car was launched in ${this.yearProduction}`)
@@ -88,11 +88,11 @@ class Toyota extends CarFactory{
 
 
 
-let a = new Porsche('Carerra',2003,4,2,2,2)
-a.name()
-a.launch()
-a.totalPerYear()
-a.carAge()
+let porsche = new Porsche('Carerra',2003,4,2,2,2)
+porsche.name()
+porsche.launch()
+porsche.totalPerYear()
+porsche.carAge()
 
 let b = new Toyota('Kijang',2015,4,4,8,2)
 b.name()

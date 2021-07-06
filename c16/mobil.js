@@ -1,101 +1,86 @@
-class CarFactory{
-    constructor(carName,yearProduction){
-        this.carName = carName;
-        this.yearProduction = yearProduction;
+class Car{
+    constructor(){
+        this.tires = 4
+        this.doors = 2
+        this.seats = 2
+        this.headlamps = 2
+        this.backlamps = 2
     }
-    totalPerYear(){
+
+}
+
+class CarFactory extends Car{
+    productionPerYear(){
         let year = 365
-        return Math.floor(Math.random() * 11) * year
+        let production = Math.floor(Math.random(1)* 11) * year
+        return production
     }
-    carAge(){
-        let today = new Date();
-        let carLaunch = this.yearProduction;
-        return today.getFullYear() - carLaunch
+    garantion(){
+        return +5
     }
 }
 
 class Porsche extends CarFactory{
-    constructor(carName,yearProduction,tires,doors,seats,headlamps){
-        super(carName,yearProduction);
-        this.tires = tires;
-        this.doors = doors;
-        this.seats = seats;
-        this.headlamps = headlamps;
+    constructor(name,launched){
+        super()
+        this.name = name;
+        this.launched = launched;
     }
-    name(){
-        console.log(`This is ${this.carName}`)
+
+    productionPerYear(){
+        super.productionPerYear()
+        console.log(`Total ${this.name} Per year ${super.productionPerYear()}`);
     }
-    totalPerYear(){
-           super.totalPerYear()
-           console.log(`Total production Porsche per year ${super.totalPerYear()}`)
-       }
-    launch(){
-        console.log(`This car was launched in ${this.yearProduction}`)
-    }   
     carAge(){
-           super.carAge()
-           console.log(`The car age is ${super.carAge()}`)
-       }
-    tire(){
-        console.log(`Total tires ${this.tires}`)
+        let today = new Date();
+        let carLaunch = this.launched;
+        console.log(`The car age is ${today.getFullYear() - carLaunch} in ${today.getFullYear()}`)
     }
-    door(){
-        console.log(`Total door ${this.doors}`)
+    garantion(){
+        super.garantion()
+        let today = new Date();
+        console.log(`You will have garantion every 5 years, and you'll get in ${today.getFullYear() + super.garantion()}`)
     }
-    seat(){
-        console.log(`Total seat ${this.seats}`)
-    }
-    headlamp(){
-        console.log(`Total headlamp ${this.headlamps}`)
-    }
+    
 }
 
 class Toyota extends CarFactory{
-    constructor(carName,yearProduction,tires,doors,seats,headlamps){
-        super(carName,yearProduction);
-        this.tires = tires;
-        this.doors = doors;
-        this.seats = seats;
-        this.headlamps = headlamps;
+    constructor(name,launched){
+        super()
+        this.name = name;
+        this.launched = launched;
     }
-    name(){
-        console.log(`This is ${this.carName}`)
+
+    productionPerYear(){
+        super.productionPerYear()
+        console.log(`Total ${this.name} Per year ${super.productionPerYear()}`);
     }
-    totalPerYear(){
-           super.totalPerYear()
-           console.log(`Total production Porsche per year ${super.totalPerYear()}`)
-    }
-    launch(){
-        console.log(`This car was launched in ${this.yearProduction}`)
-    }
+
     carAge(){
-           super.carAge()
-           console.log(`The car age is ${super.carAge()}`)
+        let today = new Date();
+        let carLaunch = this.launched;
+        console.log(`The car age is ${today.getFullYear() - carLaunch} in ${today.getFullYear()}`)
     }
-    tire(){
-        console.log(`Total tires ${this.tires}`)
+    garantion(){
+        super.garantion()
+        let today = new Date();
+        console.log(`You will have garantion every 5 years, and you'll get in ${today.getFullYear() + super.garantion()}`)
     }
-    door(){
-        console.log(`Total door ${this.doors}`)
-    }
-    seat(){
-        console.log(`Total seat ${this.seats}`)
-    }
-    headlamp(){
-        console.log(`Total headlamp ${this.headlamps}`)
-    }
+    
 }
 
+    
+let carera = new Porsche('Carera',2010)
+let supra = new Toyota('Supra',2015)
 
+console.log(carera);
+carera.productionPerYear()
+carera.carAge()
+carera.garantion()
 
-let a = new Porsche('Carerra',2003,4,2,2,2)
-a.name()
-a.launch()
-a.totalPerYear()
-a.carAge()
+console.log('\n ------------------------------------------------------------------------ \n')
 
-let b = new Toyota('Kijang',2015,4,4,8,2)
-b.name()
-b.launch()
-b.totalPerYear()
-b.carAge()
+console.log(supra)
+supra.productionPerYear()
+supra.carAge()
+supra.garantion()
