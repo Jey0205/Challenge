@@ -1,16 +1,22 @@
 class CarFactory {
     constructor(){
-        this.perYear = this.productionPerYear() 
-        this.garant = this.garantion()
+        this.car1 = new Porsche('Carera', 2015)
     }
     
     productionPerYear(){
         let year = 365
         let production = Math.floor(Math.random(1)* 11) * year
-        return production
-    }
+      
+        console.log(`Total this car Per year ${production}`);
+        
+}
     garantion(){
-        return +5
+        let today = new Date();
+        console.log(`You will have garantion every 5 years, and you'll get in ${today.getFullYear() + 5}`)
+    }
+    carAge(){
+        let today = new Date()
+        console.log(`The car age is ${today.getFullYear() - this.car1.launched} in ${today.getFullYear()}`)
     }
 }
 
@@ -33,12 +39,11 @@ class Porsche extends Car{
         super()
         this.name = name;
         this.launched = launched;
-        this.CarFactory = new CarFactory()
     }
 
     productionPerYear(){
-        
-        console.log(`Total ${this.name} Per year ${this.CarFactory.perYear}`);
+        let total = CarFactory.perYear
+        console.log(`Total ${this.name} Per year ${total}`);
     }
     carAge(){
         let today = new Date();
@@ -48,7 +53,7 @@ class Porsche extends Car{
     garantion(){
         
         let today = new Date();
-        console.log(`You will have garantion every 5 years, and you'll get in ${today.getFullYear() + this.CarFactory.garant}`)
+        console.log(`You will have garantion every 5 years, and you'll get in ${today.getFullYear() + this.CarFactory.garantion()}`)
     }
     
 }
@@ -58,13 +63,12 @@ class Toyota extends Car{
         super()
         this.name = name;
         this.launched = launched;
-        this.CarFactory = new CarFactory()
     }
 
 
     productionPerYear(){
         
-        console.log(`Total ${this.name} Per year ${this.CarFactory.perYear}`);
+        console.log(`Total ${this.name} Per year ${total}`);
     }
     carAge(){
         let today = new Date();
@@ -74,24 +78,17 @@ class Toyota extends Car{
     garantion(){
         
         let today = new Date();
-        console.log(`You will have garantion every 5 years, and you'll get in ${today.getFullYear() + this.CarFactory.garant}`)
+        console.log(`You will have garantion every 5 years, and you'll get in ${today.getFullYear() + this.CarFactory.garantion()}`)
     }
     
     
 }
 
     
-let carera = new Porsche('Carera',2010)
-let supra = new Toyota('Supra',2015)
+let car = new CarFactory()
 
-console.log(carera);
-carera.productionPerYear()
-carera.carAge()
-carera.garantion()
 
-console.log('\n ------------------------------------------------------------------------ \n')
-
-console.log(supra)
-supra.productionPerYear()
-supra.carAge()
-supra.garantion()
+console.log(car.car1);
+car.productionPerYear()
+car.carAge()
+car.garantion()
