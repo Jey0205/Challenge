@@ -71,8 +71,7 @@ class Toyota extends Car {
         this.garansi = Math.floor(Math.random() * 5)
     }
 }
-let carera = new Porsche('Carera')
-console.log(`This Car Name is ${carera.name}`)
+
 let porsche = new CarFactory()
 
 let car = porsche.manufacture(2021)
