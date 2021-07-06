@@ -41,20 +41,6 @@ class Porsche extends Car{
         this.launched = launched;
     }
 
-    productionPerYear(){
-        let total = CarFactory.perYear
-        console.log(`Total ${this.name} Per year ${total}`);
-    }
-    carAge(){
-        let today = new Date();
-        let carLaunch = this.launched;
-        console.log(`The car age is ${today.getFullYear() - carLaunch} in ${today.getFullYear()}`)
-    }
-    garantion(){
-        
-        let today = new Date();
-        console.log(`You will have garantion every 5 years, and you'll get in ${today.getFullYear() + this.CarFactory.garantion()}`)
-    }
     
 }
 
@@ -65,21 +51,6 @@ class Toyota extends Car{
         this.launched = launched;
     }
 
-
-    productionPerYear(){
-        
-        console.log(`Total ${this.name} Per year ${total}`);
-    }
-    carAge(){
-        let today = new Date();
-        let carLaunch = this.launched;
-        console.log(`The car age is ${today.getFullYear() - carLaunch} in ${today.getFullYear()}`)
-    }
-    garantion(){
-        
-        let today = new Date();
-        console.log(`You will have garantion every 5 years, and you'll get in ${today.getFullYear() + this.CarFactory.garantion()}`)
-    }
     
     
 }
