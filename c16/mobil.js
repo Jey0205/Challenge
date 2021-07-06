@@ -1,65 +1,82 @@
 class CarFactory {
-    constructor(){
-        this.car1 = new Porsche('Carera', 2015)
+    manufacture(launched) {
+        let cars = [];
+        let random = Math.floor(Math.random() * 10);
+        for (let i = 0; i < random; i++) {
+            let myCar = new Porsche("", "", "", "", launched);
+            cars.push(myCar);
+        }
+        for (let i = 0; i < random; i++) {
+            let myCar = new Toyota("", "", "", "", launched);
+            cars.push(myCar);
+        }
+        return cars;
     }
+
+    static guaranteeSimulation(array, currentYear) {
+        array.forEach((element) => {
+            element.launched = currentYear - element.launched;
+            if (element.launched > element.garansi) {
+                console.log(`The warranty of this car ${element.numberId} has been out`);
+            }
+        });
+    }
+
+    static productionOfYear(array) {
+        console.log(`Total Production perYear is ${array.length} Car`);
+    }
+
     
-    productionPerYear(){
-        let year = 365
-        let production = Math.floor(Math.random(1)* 11) * year
-      
-        console.log(`Total this car Per year ${production}`);
-        
-}
-    garantion(){
-        let today = new Date();
-        console.log(`You will have garantion every 5 years, and you'll get in ${today.getFullYear() + 5}`)
-    }
-    carAge(){
-        let today = new Date()
-        console.log(`The car age is ${today.getFullYear() - this.car1.launched} in ${today.getFullYear()}`)
-    }
+
 }
 
-class Car{
-    constructor(){
+
+class Car {
+    constructor() {
+        this.numberId = this.create_uuid();
         this.tires = 4
         this.doors = 2
         this.seats = 2
         this.headlamps = 2
         this.backlamps = 2
-       
+
+    }
+    create_uuid() {
+        return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(
+            /[xy]/g,
+            function (c) {
+                var r = (Math.random() * 16) | 0,
+                    v = c == "x" ? r : (r & 0x3) | 0x8;
+                return v.toString(16);
+            }
+        );
     }
 
 }
 
-
-
-class Porsche extends Car{
-    constructor(name,launched){
+class Porsche extends Car {
+    constructor(name) {
         super()
         this.name = name;
-        this.launched = launched;
+        this.launched = 2015;
+        this.garansi = Math.floor(Math.random() * 5)
     }
-
-    
 }
 
-class Toyota extends Car{
-    constructor(name,launched){
+class Toyota extends Car {
+    constructor(name) {
         super()
         this.name = name;
-        this.launched = launched;
+        this.launched = 2020;
+        this.garansi = Math.floor(Math.random() * 5)
     }
-
-    
-    
 }
+let carera = new Porsche('Carera')
+console.log(`This Car Name is ${carera.name}`)
+let porsche = new CarFactory()
 
-    
-let car = new CarFactory()
+let car = porsche.manufacture(2021)
+CarFactory.guaranteeSimulation(car, 2025);
+CarFactory.productionOfYear(car);
 
 
-console.log(car.car1);
-car.productionPerYear()
-car.carAge()
-car.garantion()
