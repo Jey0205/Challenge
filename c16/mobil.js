@@ -1,5 +1,9 @@
 class CarFactory {
-
+    constructor(){
+        this.perYear = this.productionPerYear() 
+        this.garant = this.garantion()
+    }
+    
     productionPerYear(){
         let year = 365
         let production = Math.floor(Math.random(1)* 11) * year
@@ -17,13 +21,7 @@ class Car{
         this.seats = 2
         this.headlamps = 2
         this.backlamps = 2
-        this.CarFactory = new CarFactory()
-    }
-    perYear(){
-     return this.CarFactory.productionPerYear()
-    }
-    garantion(){
-        return this.CarFactory.garantion()
+       
     }
 
 }
@@ -35,11 +33,12 @@ class Porsche extends Car{
         super()
         this.name = name;
         this.launched = launched;
+        this.CarFactory = new CarFactory()
     }
 
     productionPerYear(){
-        super.perYear()
-        console.log(`Total ${this.name} Per year ${super.perYear()}`);
+        
+        console.log(`Total ${this.name} Per year ${this.CarFactory.perYear}`);
     }
     carAge(){
         let today = new Date();
@@ -47,9 +46,9 @@ class Porsche extends Car{
         console.log(`The car age is ${today.getFullYear() - carLaunch} in ${today.getFullYear()}`)
     }
     garantion(){
-        super.garantion()
+        
         let today = new Date();
-        console.log(`You will have garantion every 5 years, and you'll get in ${today.getFullYear() + super.garantion()}`)
+        console.log(`You will have garantion every 5 years, and you'll get in ${today.getFullYear() + this.CarFactory.garant}`)
     }
     
 }
@@ -59,23 +58,25 @@ class Toyota extends Car{
         super()
         this.name = name;
         this.launched = launched;
+        this.CarFactory = new CarFactory()
     }
+
 
     productionPerYear(){
-        super.perYear()
-        console.log(`Total ${this.name} Per year ${super.perYear()}`);
+        
+        console.log(`Total ${this.name} Per year ${this.CarFactory.perYear}`);
     }
-
     carAge(){
         let today = new Date();
         let carLaunch = this.launched;
         console.log(`The car age is ${today.getFullYear() - carLaunch} in ${today.getFullYear()}`)
     }
     garantion(){
-        super.garantion()
+        
         let today = new Date();
-        console.log(`You will have garantion every 5 years, and you'll get in ${today.getFullYear() + super.garantion()}`)
+        console.log(`You will have garantion every 5 years, and you'll get in ${today.getFullYear() + this.CarFactory.garant}`)
     }
+    
     
 }
 
