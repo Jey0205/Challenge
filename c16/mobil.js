@@ -1,15 +1,5 @@
-class Car{
-    constructor(){
-        this.tires = 4
-        this.doors = 2
-        this.seats = 2
-        this.headlamps = 2
-        this.backlamps = 2
-    }
+class CarFactory {
 
-}
-
-class CarFactory extends Car{
     productionPerYear(){
         let year = 365
         let production = Math.floor(Math.random(1)* 11) * year
@@ -20,7 +10,27 @@ class CarFactory extends Car{
     }
 }
 
-class Porsche extends CarFactory{
+class Car{
+    constructor(){
+        this.tires = 4
+        this.doors = 2
+        this.seats = 2
+        this.headlamps = 2
+        this.backlamps = 2
+        this.CarFactory = new CarFactory()
+    }
+    perYear(){
+     return this.CarFactory.productionPerYear()
+    }
+    garantion(){
+        return this.CarFactory.garantion()
+    }
+
+}
+
+
+
+class Porsche extends Car{
     constructor(name,launched){
         super()
         this.name = name;
@@ -28,8 +38,8 @@ class Porsche extends CarFactory{
     }
 
     productionPerYear(){
-        super.productionPerYear()
-        console.log(`Total ${this.name} Per year ${super.productionPerYear()}`);
+        super.perYear()
+        console.log(`Total ${this.name} Per year ${super.perYear()}`);
     }
     carAge(){
         let today = new Date();
@@ -44,7 +54,7 @@ class Porsche extends CarFactory{
     
 }
 
-class Toyota extends CarFactory{
+class Toyota extends Car{
     constructor(name,launched){
         super()
         this.name = name;
@@ -52,8 +62,8 @@ class Toyota extends CarFactory{
     }
 
     productionPerYear(){
-        super.productionPerYear()
-        console.log(`Total ${this.name} Per year ${super.productionPerYear()}`);
+        super.perYear()
+        console.log(`Total ${this.name} Per year ${super.perYear()}`);
     }
 
     carAge(){
