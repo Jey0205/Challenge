@@ -5,13 +5,13 @@ import Jurusan from "../control/Jurusan";
 import Dosen from "../control/Dosen";
 import Matkul from "../control/Matkul";
 import Kontrak from "../control/Kontrak";
-const templateAwal = ' [1] Mahasiswa\n [2] Jurusan\n [3] Dosen\n [4] Mata Kuliah\n [5] Kontrak\n [6] Keluar'
-const templateMurid = ' [1] Daftar murid\n [2] Cari murid\n [3] Tambah murid\n [4] Hapus murid\n [5] Kembali'
-const templateDosen = ' [1] Daftar dosen\n [2] Cari dosen\n [3] Tambah dosen\n [4] Hapus dosen\n [5] Kembali'
-const templateJurusan = ' [1] Daftar jurusan\n [2] Cari jurusan\n [3] Tambah jurusan\n [4] Hapus jurusan\n [5] Kembali'
-const templateMatkul = ' [1] Daftar Mata Kuliah\n [2] Cari Mata Kuliah\n [3] Tambah Mata Kuliah\n [4] Hapus Mata Kuliah\n [5] Kembali'
+const templateAwal = 'Pilihlah salah satu opsi dibawah ini:\n [1] Mahasiswa\n [2] Jurusan\n [3] Dosen\n [4] Mata Kuliah\n [5] Kontrak\n [6] Keluar'
+const templateMurid = 'Pilihlah salah satu opsi dibawah ini:\n [1] Daftar murid\n [2] Cari murid\n [3] Tambah murid\n [4] Hapus murid\n [5] Kembali'
+const templateDosen = 'Pilihlah salah satu opsi dibawah ini:\n [1] Daftar dosen\n [2] Cari dosen\n [3] Tambah dosen\n [4] Hapus dosen\n [5] Kembali'
+const templateJurusan = 'Pilihlah salah satu opsi dibawah ini:\n [1] Daftar jurusan\n [2] Cari jurusan\n [3] Tambah jurusan\n [4] Hapus jurusan\n [5] Kembali'
+const templateMatkul = 'Pilihlah salah satu opsi dibawah ini:\n [1] Daftar Mata Kuliah\n [2] Cari Mata Kuliah\n [3] Tambah Mata Kuliah\n [4] Hapus Mata Kuliah\n [5] Kembali'
 const templateGaris = '====================================================================================================='
-const templateKontrak = ' [1] Daftar Kontrak\n [2] Cari Kontrak\n [3] Tambah Kontrak\n [4] Hapus Kontrak\n [5] Kembali'
+const templateKontrak = 'Pilihlah salah satu opsi dibawah ini:\n [1] Daftar Kontrak\n [2] Cari Kontrak\n [3] Tambah Kontrak\n [4] Hapus Kontrak\n [5] Kembali'
 
 console.log('Welcome to Universitas Pendidikan Indonesia\n Jl.Setiabudhi no.255')
 console.log(templateGaris)
@@ -40,22 +40,22 @@ function login() {
 }
 function menuAwal() {
     rl.question('Silahkan pilih opsi di atas : ', (opsi) => {
-        if (opsi == templateAwal.charAt(2)) {
+        if (opsi == '1') {
             console.log(`${templateGaris}\n${templateMurid}\n${templateGaris}`)
             mahasiswa()
-        } else if (opsi == templateAwal.charAt(17)) {
+        } else if (opsi ==  '2') {
             console.log(templateJurusan, `\n${templateGaris}`)
             jurusan()
-        } else if (opsi == templateAwal.charAt(30)) {
+        } else if (opsi ==  '3') {
             console.log(templateDosen, `\n${templateGaris}`)
             dosen()
-        } else if (opsi == templateAwal.charAt(41)) {
+        } else if (opsi ==  '4') {
             console.log(templateMatkul, `\n${templateGaris}`)
             matkul()
-        } else if (opsi == templateAwal.charAt(58)) {
+        } else if (opsi ==  '5') {
             console.log(templateKontrak, `\n${templateGaris}`)
             kontrak()
-        } else if (opsi == templateAwal.charAt(71)) {
+        } else if (opsi ==  '6') {
             console.log(`${templateGaris}\nAnda telah keluar\n${templateGaris}`)
             login()
         } else {
@@ -67,7 +67,7 @@ function menuAwal() {
 
 function mahasiswa() {
     rl.question('Silahkan pilih opsi di atas : ', (opsi) => {
-        if (opsi == templateMurid.charAt(2)) {
+        if (opsi == '1') {
             let mhs = new Mahasiswa()
             mhs.show(() => {
                 console.log(`${templateGaris}\n${templateMurid}\n${templateGaris}`)
@@ -75,7 +75,7 @@ function mahasiswa() {
             })
 
 
-        } else if (opsi == templateMurid.charAt(20)) {
+
             console.log(templateGaris)
             rl.question('Masukan nim : ', (nim) => {
                 let mhs = new Mahasiswa(nim)
@@ -83,7 +83,7 @@ function mahasiswa() {
             })
 
 
-        } else if (opsi == templateMurid.charAt(36)) {
+        } else if (opsi == '3') {
             console.log(`${templateGaris}\n Silahkan masukan data ! \n${templateGaris}`)
 
             rl.question('Masukan nim : ', (nim) => {
@@ -105,7 +105,7 @@ function mahasiswa() {
                 })
             })
 
-        } else if (opsi == templateMurid.charAt(54)) {
+        } else if (opsi == '4') {
             console.log(`${templateGaris}\n Silahkan masukan data ! \n${templateGaris}`)
             rl.question('Masukan nim yang akan dihapus : ', (nim) => {
                 let mhs = new Mahasiswa(nim)
@@ -117,7 +117,7 @@ function mahasiswa() {
                     mahasiswa()
                 })
             })
-        } else if (opsi == templateMurid.charAt(71)) {
+        } else if (opsi == '5') {
             console.log(`${templateGaris}\n${templateAwal}\n${templateGaris}`)
             menuAwal()
         } else {
@@ -129,19 +129,19 @@ function mahasiswa() {
 
 function dosen() {
     rl.question('Silahkan pilih opsi di atas : ', (opsi) => {
-        if (opsi == templateDosen.charAt(2)) {
+        if (opsi =='1') {
             let dos = new Dosen()
             dos.show(() => {
                 console.log(`${templateGaris}\n${templateDosen}\n${templateGaris}`)
                 dosen()
             })
-        } else if (opsi == templateDosen.charAt(20)) {
+        } else if (opsi == '2') {
             console.log(templateGaris)
             rl.question('Masukan Dosen ID : ', (Dosen_id) => {
                 let dos = new Dosen(Dosen_id)
                 dos.find(() => dosen())
             })
-        } else if (opsi == templateDosen.charAt(36)) {
+        } else if (opsi == '3') {
             console.log(`${templateGaris}\n Silahkan masukan data ! \n${templateGaris}`)
             rl.question('Masukan Dosen ID : ', (Dosen_id) => {
                 rl.question('Masukan Nama Dosen baru : ', (Nama) => {
@@ -156,7 +156,7 @@ function dosen() {
 
                 })
             })
-        } else if (opsi == templateDosen.charAt(54)) {
+        } else if (opsi == '4') {
             console.log(`${templateGaris}\n Silahkan masukan data ! \n${templateGaris}`)
             rl.question('Masukan Id Dosen yang akan dihapus : ', (Dosen_id) => {
                 let dos = new Dosen(Dosen_id)
@@ -168,7 +168,7 @@ function dosen() {
                     dosen()
                 })
             })
-        } else if (opsi == templateDosen.charAt(71)) {
+        } else if (opsi == '5') {
             console.log(`${templateGaris}\n${templateAwal}\n${templateGaris}`)
             menuAwal()
         } else {
@@ -297,40 +297,36 @@ function kontrak() {
             knt.show(() => {
                 console.log(`${templateGaris}\n${templateKontrak}\n${templateGaris}`)
 
-                rl.question('Masukan Kode Kontrak : ', (Kode_Kontrak) => {
-                    let knt = new Kontrak(Kode_Kontrak)
+                rl.question('Masukan NIM : ', (nim) => {
+                    let knt = new Kontrak(nim)
                     knt.find(() => kontrak())
                 })
             })
         } else if (opsi == '3') {
             console.log(`${templateGaris}\n Silahkan masukan data ! \n${templateGaris}`)
-            let mhs = new Mahasiswa()
-            mhs.show(() => {
-                console.log(`${templateGaris}\n Note:\n Kode 1 = Matematika\n Kode 2 = English\n Kode 3 = Data Mining\n Kode Kontrak harus 6 digit \n${templateGaris}`);
-                console.log(`${templateGaris}\n Silahkan masukan data ! \n${templateGaris}`)
-                rl.question('Masukan Kode Kontrak : ', (Kode_Kontrak) => {
-                    rl.question('Masukan Kode Mata Kuliah : ', (Kode_Matkul) => {
-                        rl.question('Masukan NIM mahasiswa : ', (nim) => {
-                            rl.question('Masukan Jumlah SKS : ', (sks) => {
-
-                                let knt = new Kontrak(Kode_Kontrak, Kode_Matkul, nim, sks)
-                                knt.add(() => {
-                                    console.log(`${templateGaris}\n`);
-                                })
-                                knt.show(() => {
-                                    console.log(`${templateGaris}\n${templateKontrak}\n${templateGaris}`)
+           let mahs = new Mahasiswa()
+           let mtkl = new Matkul()
+           mahs.show(() =>{
+               rl.question('silahkan masukan NIM berdasarkan tabel diatas : ',(nim) =>{
+                mtkl.show(() =>{
+                    rl.question('Masukan Kode Matkul berdasarkan tabel diatas : ',(Kode_Matkul) =>{
+                        rl.question('Masukan SKS : ',(sks) =>{
+                            rl.question('Masukan Nilai : ', (Nilai) =>{
+                                let knt = new Kontrak(nim,Kode_Matkul,sks,Nilai)
+                                knt.add()
+                                knt.show(() =>{
+                                    console.log(`${templateGaris}\n Data telah ditambahkan \n${templateGaris}`)
                                     kontrak()
-
                                 })
-
                             })
                         })
                     })
                 })
-            })
+               })
+           })
         } else if (opsi == '4') {
             console.log(`${templateGaris}\n Silahkan masukan data ! \n${templateGaris}`)
-            rl.question('Kode Kontrak yang akan dihapus : ', (Kode_Kontrak) => {
+            rl.question('NIM yang akan dihapus : ', (Kode_Kontrak) => {
                 let knt = new Kontrak(Kode_Kontrak)
                 knt.delete()
                 knt.show(() => {
