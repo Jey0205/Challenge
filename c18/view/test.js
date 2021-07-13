@@ -293,37 +293,49 @@ function kontrak() {
             })
         } else if (opsi == '2') {
             console.log(templateGaris)
-            rl.question('Masukan Kontrak ID : ', (Kontrak_id) => {
-                let knt = new Kontrak(Kontrak_id)
-                knt.find(() => kontrak())
+            let knt = new Kontrak()
+            knt.show(() => {
+                console.log(`${templateGaris}\n${templateKontrak}\n${templateGaris}`)
+
+                rl.question('Masukan Kode Kontrak : ', (Kode_Kontrak) => {
+                    let knt = new Kontrak(Kode_Kontrak)
+                    knt.find(() => kontrak())
+                })
             })
         } else if (opsi == '3') {
             console.log(`${templateGaris}\n Silahkan masukan data ! \n${templateGaris}`)
-            rl.question('Masukan Kontrak ID : ', (Kontrak_id) => {
-                rl.question('Masukan nama Mata Kuliah : ', (Nama_Matkul) => {
-                    rl.question('Masukan NIM Mahasiswa : ', (nim) => {
-                        rl.question('Masukan Jumlah SKS : ', (sks) => {
-                            let knt = new Kontrak(Kontrak_id, Nama_Matkul, nim, sks)
-                            knt.add(() => {
-                                console.log(`${templateGaris}\n`);
-                            })
-                            knt.show(() => {
-                                console.log(`${templateGaris}\n${templateKontrak}\n${templateGaris}`)
-                                kontrak()
+            let mhs = new Mahasiswa()
+            mhs.show(() => {
+                console.log(`${templateGaris}\n Note:\n Kode 1 = Matematika\n Kode 2 = English\n Kode 3 = Data Mining\n Kode Kontrak harus 6 digit \n${templateGaris}`);
+                console.log(`${templateGaris}\n Silahkan masukan data ! \n${templateGaris}`)
+                rl.question('Masukan Kode Kontrak : ', (Kode_Kontrak) => {
+                    rl.question('Masukan Kode Mata Kuliah : ', (Kode_Matkul) => {
+                        rl.question('Masukan NIM mahasiswa : ', (nim) => {
+                            rl.question('Masukan Jumlah SKS : ', (sks) => {
+
+                                let knt = new Kontrak(Kode_Kontrak, Kode_Matkul, nim, sks)
+                                knt.add(() => {
+                                    console.log(`${templateGaris}\n`);
+                                })
+                                knt.show(() => {
+                                    console.log(`${templateGaris}\n${templateKontrak}\n${templateGaris}`)
+                                    kontrak()
+
+                                })
+
                             })
                         })
-
                     })
                 })
             })
         } else if (opsi == '4') {
             console.log(`${templateGaris}\n Silahkan masukan data ! \n${templateGaris}`)
-            rl.question('Masukan Id Kontrak yang akan dihapus : ', (Kontrak_id) => {
-                let knt = new Kontrak(Kontrak_id)
+            rl.question('Kode Kontrak yang akan dihapus : ', (Kode_Kontrak) => {
+                let knt = new Kontrak(Kode_Kontrak)
                 knt.delete()
                 knt.show(() => {
                     console.log(`${templateGaris}\n`);
-                    console.log(`Kontrak dengan ID ${Kontrak_id} telah dihapus.\n`)
+                    console.log(`Kode Kontrak ${Kode_Kontrak} telah dihapus.\n`)
                     console.log(`${templateGaris}\n${templateKontrak}\n${templateGaris}`)
                     kontrak()
                 })
